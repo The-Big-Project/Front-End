@@ -1,0 +1,10 @@
+/** @format */
+
+.logo {
+  width: 65px;
+  height: 65px;
+  background-color: var(--primary);
+  rotate: 45deg;
+  align-self: center;
+  margin-bottom: 25px;
+}

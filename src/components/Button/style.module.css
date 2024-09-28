@@ -1,0 +1,45 @@
+/** @format */
+
+.primary,
+.secondary,
+.teritarry,
+.danger {
+  padding: 0.7rem 0.8rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  gap: 6px;
+  width: 125px;
+  transition: all 0.1s;
+}
+
+.primary:hover,
+.secondary:hover,
+.teritarry:hover,
+.danger:hover {
+  opacity: 0.8;
+}
+
+.primary {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.secondary {
+  background-color: var(--secondary);
+  color: #fff;
+}
+
+.teritarry {
+  background-color: var(--teritarry);
+  color: #fff;
+}
+
+.danger {
+  background-color: var(--error);
+  color: #fff;
+}

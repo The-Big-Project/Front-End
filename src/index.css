@@ -1,0 +1,33 @@
+/** @format */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+
+  --background: #f6f6f6;
+  --primary: #22577a;
+  --secondary: #38a3a5;
+  --teritarry: #57cc99;
+  --layer: #c7f9cc;
+  --stroke: #80ed99;
+  --text-base: #47687d;
+  --text-sub-base: #5a717e;
+  --error: #b84848;
+
+  --shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  --rounded-big: 12px;
+  --rounded-small: 10px;
+}

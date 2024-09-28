@@ -1,0 +1,21 @@
+/** @format */
+
+.formWindow {
+  width: 325px;
+  height: 50%;
+  background-color: var(--background);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--rounded-big);
+}
+
+.title {
+  margin-bottom: 12px;
+}
+
+.arrow {
+  width: fit-content;
+  cursor: pointer;
+}

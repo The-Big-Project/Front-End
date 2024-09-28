@@ -1,0 +1,23 @@
+/** @format */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.loginButton,
+.forgetButton {
+  align-self: center;
+  margin-top: 3%;
+}
+
+.forgetButton {
+  cursor: pointer;
+  font-size: small;
+}
+
+.nextButton {
+  align-self: center;
+  margin-top: 25px;
+}

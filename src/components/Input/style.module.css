@@ -1,0 +1,58 @@
+/** @format */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  position: relative;
+}
+
+.indicator {
+  font-size: small;
+  color: var(--text-base);
+}
+
+.input {
+  width: 100%;
+  height: 35px;
+  border-radius: 8px;
+  border: 1px solid var(--text-sub-base);
+  transition: all 0.1s;
+  text-indent: 6px;
+}
+
+.input:hover {
+  outline: 2px solid var(--text-base);
+}
+
+.input:focus {
+  border: none;
+  outline: 2px solid var(--text-base);
+}
+
+.input::-ms-reveal {
+  display: none;
+}
+
+.eye {
+  position: absolute;
+  width: 97%; /* Chnage this if you want to move the eye*/
+  transform: translate(0, 48%);
+  text-align: end;
+}
+
+.preIcon {
+  position: absolute;
+  width: 97%;
+  transform: translate(3%, 48%);
+  text-align: start;
+}
+
+.preIcon svg {
+  transform: translate(0, 5%);
+}
+
+.indentedInput {
+  text-indent: 15%;
+}
