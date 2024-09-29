@@ -1,0 +1,6 @@
+/** @format */
+
+.error {
+  color: var(--error);
+  text-align: center;
+}

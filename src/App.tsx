@@ -8,6 +8,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools/production";
 import { Provider } from "react-redux";
 import store from "./store";
+import { signUp } from "./api/userApi";
+import ProtectedRoute from "./pages/ProtectedRoute/ProtectedRoute";
 
 const routes = createBrowserRouter([
   {
@@ -19,6 +21,16 @@ const routes = createBrowserRouter([
   {
     path: "/password",
     element: <ResetPasswordPage />,
+  },
+  {
+    path: "/app",
+    element: <ProtectedRoute />,
+    children: [
+      {
+        index: true,
+        element: <h1>Logged In</h1>,
+      },
+    ],
   },
 ]);
 

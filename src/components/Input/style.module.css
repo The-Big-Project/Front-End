@@ -35,18 +35,21 @@
   display: none;
 }
 
+.input:disabled {
+  background-color: rgba(214, 214, 214, 0.87);
+  cursor: not-allowed;
+}
+
 .eye {
   position: absolute;
-  width: 97%; /* Chnage this if you want to move the eye*/
+  right: 3%;
   transform: translate(0, 48%);
-  text-align: end;
 }
 
 .preIcon {
   position: absolute;
-  width: 97%;
+  left: 3%;
   transform: translate(3%, 48%);
-  text-align: start;
 }
 
 .preIcon svg {

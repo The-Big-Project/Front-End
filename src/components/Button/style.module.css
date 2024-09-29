@@ -24,6 +24,13 @@
   opacity: 0.8;
 }
 
+.primary:disabled,
+.secondary:disabled,
+.teritarry:disabled,
+.danger:disabled {
+  cursor: not-allowed;
+}
+
 .primary {
   background-color: var(--primary);
   color: #fff;
