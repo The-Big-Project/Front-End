@@ -70,7 +70,7 @@ export default function LoginForm() {
           language[lang].login
         )}
       </Button>
-      {error && <ErrorMessage>{isError && "Credentials Error"}</ErrorMessage>}
+      {error && <ErrorMessage>{isError && error.message}</ErrorMessage>}
       <Link to="/password" className={styles.forgetButton}>
         {language[lang].forgetPassword}
       </Link>

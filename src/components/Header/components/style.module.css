@@ -1,0 +1,25 @@
+/** @format */
+
+.NavLink {
+  padding: 0.6rem 1.2rem;
+  background-color: var(--layer);
+  border-radius: var(--rounded-small);
+  font-size: medium;
+  color: var(--text-base);
+  transition: all 0.15s;
+  outline: 4px solid var(--background);
+}
+
+.NavLink:hover {
+  background-color: var(--stroke);
+  outline: 4px solid var(--layer);
+}
+
+.NavLink:active {
+  background-color: var(--teritarry);
+}
+
+.NavLink:visited {
+  color: inherit;
+  text-decoration: unset;
+}

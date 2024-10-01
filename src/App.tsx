@@ -10,6 +10,8 @@ import { Provider } from "react-redux";
 import store from "./store";
 import { signUp } from "./api/userApi";
 import ProtectedRoute from "./pages/ProtectedRoute/ProtectedRoute";
+import AppLayout from "./pages/AppLayout/AppLayout";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 const routes = createBrowserRouter([
   {
@@ -27,8 +29,16 @@ const routes = createBrowserRouter([
     element: <ProtectedRoute />,
     children: [
       {
-        index: true,
-        element: <h1>Logged In</h1>,
+        element: <AppLayout />,
+        children: [
+          {
+            index: true,
+            element: <Dashboard />,
+          },
+        ],
+      },
+      {
+        path: "/inventory",
       },
     ],
   },
