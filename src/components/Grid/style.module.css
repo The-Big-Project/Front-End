@@ -1,0 +1,8 @@
+/** @format */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, fit-content);
+  width: 100%;
+  height: 100%;
+}

@@ -41,6 +41,10 @@ function Input(
     { [styles.indentedInput]: icon },
     inputClassName
   );
+  const preIconClass = ClassNames({
+    [styles.preIcon]: children,
+    [styles.preIconWithoutIndicator]: !children,
+  });
 
   const dynamicType =
     inputType === "password" && isPasswordRevealed
@@ -52,7 +56,7 @@ function Input(
   return (
     <label className={wrapperClass} htmlFor={id + props.id || ""}>
       <span className={styles.indicator}>{children}</span>
-      {icon && <span className={styles.preIcon}>{icon} |</span>}
+      {icon && <span className={preIconClass}>{icon} |</span>}
       <input
         type={dynamicType}
         id={id + props.id || ""}

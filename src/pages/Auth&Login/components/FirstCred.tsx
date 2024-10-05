@@ -16,12 +16,14 @@ type FirstCredProps<FormValues extends FieldValues> = {
   isPending: boolean;
   control: Control<FormValues>;
   name: Path<FormValues>;
+  className: string;
 };
 
 export default function FirstCred<FormValues extends FieldValues>({
   isPending,
   control,
   name,
+  className,
 }: FirstCredProps<FormValues>) {
   const lang = useLanguages();
 
@@ -35,6 +37,7 @@ export default function FirstCred<FormValues extends FieldValues>({
           inputType="text"
           disabled={isPending}
           icon={<MdOutlineEmail />}
+          inputClassName={className}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
             const startWithCode = /^(?:\+|00)/;
             const value = e.target.value;

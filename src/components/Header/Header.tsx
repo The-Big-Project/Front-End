@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <HeaderButton to="/login">{language[lang].sell}</HeaderButton>
-      <HeaderButton to="/login">{language[lang].inventory}</HeaderButton>
+      <HeaderButton to="inventory">{language[lang].inventory}</HeaderButton>
       <HeaderButton to="/login">{language[lang].reports}</HeaderButton>
       <HeaderButton to="/login">{language[lang].clients}</HeaderButton>
       <HeaderButton to="/login">{language[lang].settings}</HeaderButton>

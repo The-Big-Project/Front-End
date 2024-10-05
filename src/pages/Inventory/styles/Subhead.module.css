@@ -1,0 +1,21 @@
+/** @format */
+
+.subhead {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 16px;
+  margin: 12px 0 0 0;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 4px;
+}
+
+.searchInput {
+  width: 25%;
+}

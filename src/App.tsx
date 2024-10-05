@@ -12,6 +12,7 @@ import { signUp } from "./api/userApi";
 import ProtectedRoute from "./pages/ProtectedRoute/ProtectedRoute";
 import AppLayout from "./pages/AppLayout/AppLayout";
 import Dashboard from "./components/Dashboard/Dashboard";
+import Inventory from "./pages/Inventory/Inventory";
 
 const routes = createBrowserRouter([
   {
@@ -35,10 +36,11 @@ const routes = createBrowserRouter([
             index: true,
             element: <Dashboard />,
           },
+          {
+            path: "inventory",
+            element: <Inventory />,
+          },
         ],
-      },
-      {
-        path: "/inventory",
       },
     ],
   },

@@ -52,6 +52,16 @@
   transform: translate(3%, 48%);
 }
 
+.preIconWithoutIndicator {
+  position: absolute;
+  left: 3%;
+  transform: translate(3%, 7%);
+}
+
+.preIconWithoutIndicator svg {
+  transform: translate(0, 5%);
+}
+
 .preIcon svg {
   transform: translate(0, 5%);
 }
