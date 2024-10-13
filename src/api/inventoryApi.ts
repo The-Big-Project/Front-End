@@ -2,6 +2,7 @@
 
 import { AxiosError } from "axios";
 import AXIOS from "../utils/axiosInstance";
+import { refreshToken } from "./userApi";
 
 export type inventoryItemType = {
   createdAt: Date;
@@ -20,18 +21,19 @@ export type inventoryItemType = {
   sold: number;
 };
 
-type resultType = { data: inventoryItemType[]; documentCount: number };
+type resultType = inventoryItemType[];
 
 interface InventoryResponse {
   status: "success" | "fail";
-  result: resultType;
+  result?: resultType;
+  count?: string;
   message?: string;
 }
 
 export async function getInventoryItems(
   pageSize: number,
   pageNumber: number
-): Promise<Readonly<resultType>> {
+): Promise<Readonly<{ count: string; result: resultType }>> {
   try {
     const controller = new AbortController();
     const accessToken = sessionStorage.getItem("accessToken") as string;
@@ -50,9 +52,13 @@ export async function getInventoryItems(
       throw new Error(`Error | message: ${data?.message} | code: ${status}`);
 
     controller.abort();
-    return data.result;
+    return { count: data.count as string, result: data.result as resultType };
   } catch (e) {
-    if (e instanceof AxiosError) console.error(e.message);
+    if (e instanceof AxiosError) {
+      const errorMessage = e.response?.data.message;
+      if (errorMessage === "jwt expired") refreshToken();
+      return Promise.reject(errorMessage);
+    }
     return Promise.reject(e);
   }
 }

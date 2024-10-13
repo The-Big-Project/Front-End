@@ -1,0 +1,13 @@
+/** @format */
+
+.frame {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  justify-items: center;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+}

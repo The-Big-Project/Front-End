@@ -28,6 +28,12 @@ export interface UserResponse {
   statusCode: number;
 }
 
+export interface refreshResponse {
+  status: string;
+  accessToken: string;
+  message?: string;
+}
+
 export async function signUp(user: user): Promise<UserResponse> {
   try {
     const controller = new AbortController();
@@ -73,5 +79,24 @@ export async function login(credentials: credentials): Promise<UserResponse> {
       console.error(`ERROR | Axios Error`, e.response?.data);
     }
     return Promise.reject(e);
+  }
+}
+
+export async function refreshToken(): Promise<void> {
+  try {
+    const controller = new AbortController();
+    const { data, status } = await AXIOS.get<refreshResponse>("/user/refresh");
+
+    if (!data) throw new Error("Refresh failed");
+    if (status.toString().startsWith("40"))
+      throw new Error(`Error | message: ${data?.message} | code: ${status}`);
+
+    controller.abort();
+    sessionStorage.setItem("accessToken", data.accessToken);
+  } catch (e) {
+    if (e instanceof AxiosError)
+      console.error("ERROR | Axios Error", e.response?.data);
+    sessionStorage.removeItem("accessToken");
+    window.location.replace("/login");
   }
 }

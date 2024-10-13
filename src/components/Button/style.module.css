@@ -24,6 +24,14 @@
   opacity: 0.8;
 }
 
+.primary span,
+.secondary span,
+.teritarry span,
+.danger span {
+  align-self: center;
+  height: 100%;
+}
+
 .primary:disabled,
 .secondary:disabled,
 .teritarry:disabled,

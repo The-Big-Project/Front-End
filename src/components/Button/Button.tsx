@@ -9,18 +9,28 @@ import {
 } from "react";
 
 type ButtonType = "primary" | "secondary" | "teritarry" | "danger";
+type IconPosition = "start" | "end";
 
-type ButtonProps<T extends ElementType> = {
+type ButtonPropsWithoutIcon<T extends ElementType> = {
   styleType: ButtonType;
   as?: T;
-  icon?: ReactNode;
   className?: string;
   children?: ReactNode;
 } & ComponentPropsWithoutRef<T>;
 
+type ButtonPropsWithIcon<T extends ElementType> = {
+  icon: ReactNode;
+  iconPosition: IconPosition;
+} & ButtonPropsWithoutIcon<T>;
+
+type ButtonProps<T extends ElementType> =
+  | ButtonPropsWithoutIcon<T>
+  | ButtonPropsWithIcon<T>;
+
 export default function Button<E extends ElementType>({
   styleType,
   icon,
+  iconPosition,
   as,
   className,
   children,
@@ -30,8 +40,9 @@ export default function Button<E extends ElementType>({
   const finalClass = classNames(styles[styleType], className);
   return (
     <Component {...props} className={finalClass}>
-      {icon && <span>{icon}</span>}
+      {iconPosition === "start" && <span>{icon}</span>}
       {children}
+      {iconPosition === "end" && <span>{icon}</span>}
     </Component>
   );
 }

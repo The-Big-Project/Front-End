@@ -3,7 +3,7 @@
 import type { inventoryItemType } from "../../../api/inventoryApi";
 import Grid from "../../../components/Grid/Grid";
 import InventoryItem from "./InventoryItem";
-
+import styles from "../styles/main.module.css";
 type InventoryGridProps = {
   data: inventoryItemType[] | undefined;
 };
@@ -19,5 +19,9 @@ export default function InventoryGrid({ data }: Readonly<InventoryGridProps>) {
       sold={item.sold}
     />
   ));
-  return <Grid>{items}</Grid>;
+  return (
+    <div className={styles.gridContainer}>
+      <Grid>{items}</Grid>;
+    </div>
+  );
 }
