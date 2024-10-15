@@ -8,7 +8,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools/production";
 import { Provider } from "react-redux";
 import store from "./store";
-import { signUp } from "./api/userApi";
 import ProtectedRoute from "./pages/ProtectedRoute/ProtectedRoute";
 import AppLayout from "./pages/AppLayout/AppLayout";
 import Dashboard from "./components/Dashboard/Dashboard";

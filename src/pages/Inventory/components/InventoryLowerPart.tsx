@@ -13,11 +13,10 @@ export default function InventoryLowerPart() {
   const [searchParams, setSearchParams] = useSearchParams();
   const pageNumber = searchParams.get("pageNumber") || 0;
   const pageSize = searchParams.get("pageSize") || 12;
-  const numberOfPages = data ? Math.floor(+data?.count / +pageSize) : 0;
+  const numberOfPages = data ? Math.ceil(+data?.count / +pageSize) : 0;
   const isOnline = navigator.onLine;
 
   function paginate(direction: "next" | "previous"): void {
-    console.log(direction);
     if (direction === "next" && +pageNumber < numberOfPages) {
       searchParams.set("pageNumber", (+pageNumber + 1).toString());
       setSearchParams(searchParams);
@@ -44,9 +43,7 @@ export default function InventoryLowerPart() {
       </div>
     );
 
-  if (isPending) return <p>LOADING</p>;
-
-  if (data)
+  if (data || isPending)
     return (
       <div className={styles.lowerPart}>
         <h2>
@@ -62,13 +59,13 @@ export default function InventoryLowerPart() {
           >
             Previous
           </Button>
-          <InventoryGrid data={data?.result} />
+          <InventoryGrid data={data?.result} isPending={isPending} />
           <Button
             icon={<FaArrowRight size={12} />}
             iconPosition="end"
             styleType="primary"
             onClick={() => paginate("next")}
-            disabled={+pageNumber >= numberOfPages}
+            disabled={+pageNumber >= numberOfPages - 1}
           >
             Next
           </Button>

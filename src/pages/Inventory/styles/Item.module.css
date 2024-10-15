@@ -1,6 +1,7 @@
 /** @format */
 
-.item {
+.item,
+.itemSkeleton {
   display: grid;
   grid-template-columns: 25% 50% 15%;
   width: 300px;
@@ -18,6 +19,10 @@
   background-color: var(--teritarry);
   border-radius: var(--rounded-big);
   cursor: pointer;
+}
+
+.itemSkeleton {
+  grid-template-columns: 1fr;
 }
 
 .item:hover button {
