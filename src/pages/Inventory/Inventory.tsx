@@ -2,13 +2,16 @@
 
 import InventoryLowerPart from "./components/InventoryLowerPart";
 import Subhead from "./components/Subhead";
-import styles from "./styles/main.module.css";
+import { SearchProvider } from "./contexts/SearchContext";
+import styles from "./styles/main.module.scss";
 
 export default function Inventory() {
   return (
-    <div className={styles.inventoryContainer}>
-      <Subhead />
-      <InventoryLowerPart />
-    </div>
+    <SearchProvider>
+      <div className={styles.inventoryContainer}>
+        <Subhead />
+        <InventoryLowerPart />
+      </div>
+    </SearchProvider>
   );
 }

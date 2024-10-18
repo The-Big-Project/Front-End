@@ -3,6 +3,8 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(auto, 305px));
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
 }

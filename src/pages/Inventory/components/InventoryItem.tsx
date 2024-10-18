@@ -1,7 +1,7 @@
 /** @format */
 import { format } from "date-fns";
 import Button from "../../../components/Button/Button";
-import styles from "../styles/Item.module.css";
+import styles from "../styles/Item.module.scss";
 
 type InventoryItemProps = {
   image?: string;

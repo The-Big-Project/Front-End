@@ -1,7 +1,7 @@
 /** @format */
 
 import ContentLoader from "react-content-loader";
-import styles from "../styles/Item.module.css";
+import styles from "../styles/Item.module.scss";
 
 export default function InventoryItemSkeleton() {
   return (

@@ -3,7 +3,7 @@
 import { useSearchParams } from "react-router-dom";
 import useInventoryItems from "../../../hooks/useInventoryItems";
 import InventoryGrid from "./InventoryGrid";
-import styles from "../styles/main.module.css";
+import styles from "../styles/main.module.scss";
 import ErrorComponent from "../../../components/ErrorComponent/ErrorComponent";
 import Button from "../../../components/Button/Button";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
@@ -46,9 +46,6 @@ export default function InventoryLowerPart() {
   if (data || isPending)
     return (
       <div className={styles.lowerPart}>
-        <h2>
-          page {+pageNumber + 1} of {numberOfPages}
-        </h2>
         <div className={styles.mainContainer}>
           <Button
             icon={<FaArrowLeft size={12} />}
@@ -59,7 +56,9 @@ export default function InventoryLowerPart() {
           >
             Previous
           </Button>
-          <InventoryGrid data={data?.result} isPending={isPending} />
+          <h3>
+            page {+pageNumber + 1} of {numberOfPages}
+          </h3>
           <Button
             icon={<FaArrowRight size={12} />}
             iconPosition="end"
@@ -70,6 +69,15 @@ export default function InventoryLowerPart() {
             Next
           </Button>
         </div>
+        {(isPaused || isError) && !isOnline && (
+          <ErrorComponent errorType="network">No Connection</ErrorComponent>
+        )}
+        {(isPaused || isError) && isOnline && (
+          <ErrorComponent errorType="unknown">
+            Unknown Error Occured
+          </ErrorComponent>
+        )}
+        <InventoryGrid data={data?.result} isPending={isPending} />
       </div>
     );
 }

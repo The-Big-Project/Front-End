@@ -3,8 +3,9 @@
 import type { inventoryItemType } from "../../../api/inventoryApi";
 import Grid from "../../../components/Grid/Grid";
 import InventoryItem from "./InventoryItem";
-import styles from "../styles/main.module.css";
+import styles from "../styles/main.module.scss";
 import InventoryItemSkeleton from "./InventoryItemSkeleton";
+
 type InventoryGridProps = {
   data: inventoryItemType[] | undefined;
   isPending: boolean;

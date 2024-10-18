@@ -32,13 +32,14 @@ interface InventoryResponse {
 
 export async function getInventoryItems(
   pageSize: number,
-  pageNumber: number
+  pageNumber: number,
+  searchQuery: string
 ): Promise<Readonly<{ count: string; result: resultType }>> {
   try {
     const controller = new AbortController();
     const accessToken = sessionStorage.getItem("accessToken") as string;
     const { data, status } = await AXIOS.get<InventoryResponse>(
-      `/inventory?pageNumber=${pageNumber}&pageSize=${pageSize}`,
+      `/inventory?pageNumber=${pageNumber}&pageSize=${pageSize}&search=${searchQuery}`,
       {
         timeout: 60000,
         signal: controller.signal,
